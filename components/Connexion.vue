@@ -28,9 +28,6 @@ export default {
           this.$store.commit('setMember', response.data);
 	        this.$store.commit('setToken', response.data.token);
 
-          //this.$store.commit('setMember', false);
-          //this.$store.commit('setToken', false);
-
           window.axios.defaults.params.token = response.data.token;
 
           this.$router.push({path : '/conversation'})
