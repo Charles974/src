@@ -37,11 +37,15 @@ export default {
 }
 
 #navbar h1{
-  width: 75%;
+  width: 90%;
+  font-size: 20px;
+  text-align: center;
 }
 
 .button{
-  width: 25%;
+  margin-top: 10px;
+  height: 30px;
+  width: 10%;
 }
 
 </style>
