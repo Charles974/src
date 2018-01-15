@@ -1,14 +1,10 @@
 <template>
 
   <form v-on:submit="seConnecter">
-    <div>
       <input type="email" v-model="email" placeholder="Email">
-    </div>
-    <div>
       <input type="password" v-model="password" placeholder="Password">
-    </div>
-    <input type="submit" value="Se connecter">
-    <router-link to="/membre-creation">Se créer un compte</router-link>
+      <input type="submit" value="Se connecter">
+      <router-link to="/membre-creation" class="lien">Se créer un compte</router-link>
   </form>
 
 </template>
@@ -18,8 +14,8 @@ export default {
   name: 'Connexion',
   data () {
     return {
-      email : 'test@test.com',
-      password : 'test'
+      email : '',
+      password : ''
     }
   },
 	methods : {
@@ -44,11 +40,39 @@ export default {
 	      });
 	 	}
 	}
-  
+
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+form{
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+  margin: auto;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #ADD8E6;
+  padding: 2em;
+  border-radius: 20px;
+}
+
+input{
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+input:nth-child(3){
+  margin-top: 1em;
+}
+
+.lien{
+  margin-top: 1em;
+  text-align: center;
+  width: 100%;
+  color: black;
+}
 
 </style>
