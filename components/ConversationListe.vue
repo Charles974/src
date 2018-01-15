@@ -4,56 +4,47 @@
   	<div>
   		Vous êtes connecté
   		<button @click="signout">Se déconnecter</button>
-  		<router-link to="/conversation-creation">Creer une conversation</router-link>
+  		<router-link to="/conversation-creation">Créer une conversation</router-link>
   	</div>
   		
 	<div class="allChannels">
 		<h2>Liste des Channels :</h2>
-		<channel v-for="unChannel in channels" :channel="unChannel"></channel>
+		<conversation-element v-for="channel in channels" :channel="channel"/>
 	</div>
 
   </div>
 
-  
-
 </template>
 
 <script>
-import channels from './Channels.vue'
+import ConversationElement from './ConversationElement.vue'
 export default {
-  	name: 'conversation',
-  	props : ['channels'],
-  	components : (channels),
+  	name: 'conversation-liste',
+  	components : {ConversationElement},
 	data () {
 		return {
+      channels : []
 		}
 	},
-  	methods : {
-	    signout() {
-	    	window.bus.$emit('logout')
-	    	/*window.axios.delete('members/signout');
-
-        	this.$store.commit('setMember', false);
-        	this.$store.commit('setToken', false);
-
-        	this.$router.push({path : '/connexion'})*/
-	    },
-      recupChannels () {
-      //Window rend l'objet global -> accessible partout
+  mounted() {
       window.axios.get('/channels',{
         label : this.label,
         topic : this.topic,
-        }).then((response) => {
-          console.log('lol');
-        }).catch((error) => {
-            console.log(error);
-        });
+      }).then((response) => {
+        this.channels = response.data;
+      }).catch((error) => {
+          console.log(error);
+      });
+  },
+  methods : {
+      signout() {
+        window.bus.$emit('logout')
       }
+
   	} 
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>

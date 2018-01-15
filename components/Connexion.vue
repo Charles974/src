@@ -18,8 +18,8 @@ export default {
   name: 'Connexion',
   data () {
     return {
-      email : 'test@test.com',
-      password : 'test'
+      email : 'oooo@oooo.oooo',
+      password : 'oooo'
     }
   },
 	methods : {
@@ -31,9 +31,6 @@ export default {
 	 		  }).then((response) => {
           this.$store.commit('setMember', response.data);
 	        this.$store.commit('setToken', response.data.token);
-
-          //this.$store.commit('setMember', false);
-          //this.$store.commit('setToken', false);
 
           window.axios.defaults.params.token = response.data.token;
 

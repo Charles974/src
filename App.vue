@@ -16,12 +16,12 @@ export default {
   components : { MembreCreation, Connexion },
   mounted() {
     if (this.$store.state.member){
-
+      window.axios.defaults.params.token = this.$store.state.token;
     }
     else{
       this.$router.push({path : '/connexion'})
     }
-      window.bus.$on('logout', () => {
+    window.bus.$on('logout', () => {
       window.axios.delete('members/signout');
 
       this.$store.commit('setMember', false);

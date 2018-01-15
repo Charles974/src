@@ -1,5 +1,5 @@
 <template>
-  <div class="channels">
+  <div>
     <h3>{{ channel.label }}</h3>
     <p>{{ channel.topic }}</p>
   </div>
@@ -8,7 +8,7 @@
 <script>
 
 export default {
-  name: 'channel',
+  name: 'conversation-element',
   props : ['channel'],
   data() {
     return {

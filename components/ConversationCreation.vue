@@ -26,19 +26,17 @@ export default {
       //Window rend l'objet global -> accessible partout
 	 		window.axios.post('/channels',{
 	 			label : this.label,
-        		topic : this.topic,
+        topic : this.topic,
 	 		}).then((response) => {
-	 			
 	 			this.$store.commit('setMember', response.data);
-	        	this.$store.commit('setToken', response.data.token);
+        this.$store.commit('setToken', response.data.token);
 
-          		window.axios.defaults.params.token = response.data.token;
+        window.axios.defaults.params.token = response.data.token;
 
-          		this.$router.push({path : '/conversation'})
-
-	      	}).catch((error) => {
-	        	console.log(error);
-	      });
+        this.$router.push({path : '/conversation'})
+      }).catch((error) => {
+        console.log(error);
+      });
 	 	}
 	}
   
