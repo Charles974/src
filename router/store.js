@@ -16,9 +16,9 @@ export default new Vuex.Store({
 			state.token = token;
 		},
 		initialiseStore(state) {
-			if(localStorage.getItem('store')) {
+			if(store = localStorage.getItem('store')) {
 				this.replaceState(
-					Object.assign(state, JSON.parse(localStorage.getItem('store')))
+					Object.assign(state, JSON.parse(store))
 				);
 			}
 		}
