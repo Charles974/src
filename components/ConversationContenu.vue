@@ -1,11 +1,7 @@
 <template>
 
   <div id="block">
-  	<div id="navbar">
-  		Vous êtes connecté
-  		<button @click="retourConv">Afficher toutes les conversations</button>
-  	</div>
-
+  	<navbar></navbar>
 	<div class="allChannels">
 		<h2>Messages :</h2>
 		<conversation-message v-for="unMessage in messages" :unMessage="unMessage"/>
@@ -15,29 +11,20 @@
 </template>
 
 <script>
-import ConversationMessage from './ConversationMessage.vue'
+import Navbar from './Navbar.vue'
 export default {
   	name: 'conversation-message',
-  	components : {ConversationMessage},
+  	components : {Navbar},
 	data () {
 		return {
-      		//messages : []
+      		messages : []
 		}
 	},
   mounted() {
-      window.axios.get('/channels',{
-        label : this.label,
-        topic : this.topic,
-      }).then((response) => {
-        this.channels = response.data;
-      }).catch((error) => {
-          console.log(error);
-      });
+      console.log("affichage");
   },
   methods : {
-      signout() {
-        window.bus.$emit('logout')
-      }
+      
   	}
 }
 </script>
