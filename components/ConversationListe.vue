@@ -4,7 +4,7 @@
   	<div id="navbar">
   		Vous êtes connecté
   		<button @click="signout">Se déconnecter</button>
-  		<router-link to="/conversation-creation">Creer une conversation</router-link>
+  		<router-link to="/conversation-creation" class="lien">Creer une conversation</router-link>
   	</div>
 
 	<div class="allChannels">
@@ -74,6 +74,20 @@ export default {
 
 .allChannels h2{
   width: 100%;
+}
+
+.lien{
+  color: white;
+  -webkit-transition-property: color;
+	-webkit-transition-duration: 1s;
+	-moz-transition-property: color;
+	-moz-transition-duration: 1s;
+	transition-property: color;
+	transition-duration: 1s;
+}
+
+.lien:hover{
+  color: orange;
 }
 
 </style>
