@@ -2,27 +2,26 @@
 
   <div id="block">
   	<div id="navbar">
-      <navbar></navbar>
-  		<router-link to="/conversation-creation">Créer une conversation</router-link>
+  		Vous êtes connecté
+  		<button @click="retourConv">Afficher toutes les conversations</button>
   	</div>
 
 	<div class="allChannels">
-		<h2>Liste des Channels :</h2>
-		<conversation-element v-for="channel in channels" :channel="channel"/>
-  </div>
+		<h2>Messages :</h2>
+		<conversation-message v-for="unMessage in messages" :unMessage="unMessage"/>
+	</div>
 
   </div>
 </template>
 
 <script>
-import ConversationElement from './ConversationElement.vue'
-import Navbar from './Navbar.vue'
+import ConversationMessage from './ConversationMessage.vue'
 export default {
-  	name: 'conversation-liste',
-  	components : {ConversationElement, Navbar},
+  	name: 'conversation-message',
+  	components : {ConversationMessage},
 	data () {
 		return {
-      channels : []
+      		//messages : []
 		}
 	},
   mounted() {
