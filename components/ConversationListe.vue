@@ -1,17 +1,11 @@
 <template>
-
-  <div id="block">
-  	<div id="navbar">
-      <navbar></navbar>
-  		<router-link to="/conversation-creation">Créer une conversation</router-link>
-
-  	</div>
-
-	<div class="allChannels">
-		<h2>Liste des Channels :</h2>
-		<conversation-element v-for="channel in channels" :channel="channel"/>
-  </div>
-
+  <div id="convliste">
+    <navbar></navbar>
+  	<div class="allChannels">
+  		<h2>Liste des Channels :</h2>
+      <router-link to="/conversation-creation" class="creation">Créer une conversation</router-link>
+  		<conversation-element v-for="channel in channels" :channel="channel"/>
+    </div>
   </div>
 </template>
 
@@ -46,16 +40,9 @@ export default {
 
 <style scoped>
 
-#block{
+#convliste{
   width: 100%;
-}
-
-#navbar{
-  width: 100%;
-  height: 50px;
-  color: white;
-  text-align: right;
-  background-color: black;
+  box-sizing: border-box;
 }
 
 .allChannels{
@@ -82,6 +69,10 @@ export default {
 
 .lien:hover{
   color: orange;
+}
+
+.creation{
+  width: 100%;
 }
 
 </style>
